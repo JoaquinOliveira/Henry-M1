@@ -9,11 +9,8 @@ function BinarioADecimal(num) {
     expect(BinarioADecimal('111')).toBe(7);
   });
 
-  // 111 y tiene que ser 7.
-
-0 0 0 0 0 1 1 1 
-2 ^ 0 = 1 + 1
-
+  // 111 y tiene que ser 7. */
+/* PRIMERA SOLUCION 
 
 
 let pos = 0
@@ -23,7 +20,17 @@ for (let i = num.length -1; i >= 0; i --){
   pos++
 }
 return suma
-}*/
+} */
+
+/* SEGUNDA SOLUCION 
+let bin = []; dec = 0
+bin = num.split('').reverse();
+for (let i = 0; i <bin.length; i++) {
+  dec +=bin[i] * math.pow(2,i);
+}
+return dec;}*/
+
+
 
 return parseInt(num, 2) }
 
@@ -34,7 +41,9 @@ function DecimalABinario(num) {
   });
   it('should return "111"', function() {
     expect(DecimalABinario(7)).toBe('111');
-  })
+  })*/
+
+  /* PRIMERA SOLUCION 
 let binario = '';
 let div = 0
 while (num / 2 !== 0) {
@@ -52,6 +61,15 @@ for (let i =binario.length - 1; i >= 0; i--){
   }
 return nuevaCadena
 }*/
+
+/*SEGUNDA SOLUCION 
+let bin = []
+while (num > 0) {
+  bin.push (num % 2);
+  num = Math.floor(num/2)}
+  return bin.reverse().join('')
+}
+*/
 return num.toString(2)}
 
 
