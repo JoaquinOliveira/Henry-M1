@@ -3,10 +3,18 @@
 // Closures
 
 function counter() {
-  /*
+  let counter1 = 0;
+ return function contador(){
+   counter1 += 1;
+   return counter1;  
+ }
+}
+
+ /*
   Ejercicio 1
 
-  La función counter debe retornar otra función. Esta función retornada debe actuar como un contador, retornando un valor numérico que empieza en 1 e incrementa con cada invocación.
+  La función counter debe retornar otra función. Esta función retornada debe actuar como un contador, 
+  retornando un valor numérico que empieza en 1 e incrementa con cada invocación.
 
   Ejemplo:
   const nuevoContador = counter()
@@ -19,7 +27,6 @@ function counter() {
   otroContador()      // 2
   otroContador()      // 3
    */
-}
 
 function cacheFunction(cb) {
   /*
@@ -67,22 +74,29 @@ function getNombre() {
   Usando el método bind() guardar, en las dos variables declaradas a continuación, dos funciones que actúen como getNombre pero retornen el nombre del instructor y del alumno, respectivamente.
 */
 
-let getNombreInstructor;
-let getNombreAlumno;
+
+let getNombreInstructor = getNombre.bind(instructor);
+getNombreInstructor()
+let getNombreAlumno = getNombre.bind(alumno);
+getNombreAlumno()
 
 /*
   Ejercicio 4
   
-  Sin modificar la función crearCadena, usar bind para guardar, en las tres variables declaradas a continuación, tres funciones que retornen una cadena (string) y el delimitador especificado (asteriscos, guiones, y guiones bajos, respectivamente). Las funciones obtenidas deberían recibir solamente un argumento - la cadena de texto - ya que los otros argumentos habrán sido "bindeados". 
+  Sin modificar la función crearCadena, usar bind para guardar, en las tres variables declaradas a continuación, tres funciones que retornen una cadena (string) y el delimitador especificado (asteriscos, guiones, y guiones bajos, respectivamente). 
+  Las funciones obtenidas deberían recibir solamente un argumento - la cadena de texto - ya que los otros argumentos habrán sido "bindeados". 
 */
 
 function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
   return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos;
-let textoGuiones;
-let textoUnderscore;
+let textoAsteriscos = crearCadena.bind(this, '*', '*');
+textoAsteriscos()
+let textoGuiones = crearCadena.bind(this, '-', '-');
+textoGuiones()
+let textoUnderscore = crearCadena.bind(this, '_', '_');
+textoUnderscore()
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------

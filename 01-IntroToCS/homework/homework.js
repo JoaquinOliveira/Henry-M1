@@ -2,7 +2,7 @@
 
 function BinarioADecimal(num) {
  //Primera solución con método:
-return parseInt(num, 2)}
+return parseInt(num, 2)
 /*Segunda solución con for:
 let sum = 0 // creo una variable para hacer la suma
 let pos = 0 // creo una variable para elevar la posición
@@ -15,23 +15,24 @@ return sum} */
 /*Tercera solución dando vuelta directamente el num y recorriendo el array de izq a derecha.
 
 let array = [], sum = 0;
-array = num.split('').reverse();
+array = num.split('').reverse().join('');
 for (let i = 0; i < array.length; i++) {
   sum += Math.pow(2, i) * array[i]
 }
 return sum}*/
-/*Cuarta solución: 
+
+/*Cuarta solución:
 var decimal = 0, i = 0, resto;
   
   while (num != 0) {
-    resto = num % 10;
+    resto = num % 2;
     num = Number.parseInt(num / 10);
     decimal += resto * Math.pow(2, i);
     ++i;
   }
 return decimal
 }*/
-
+console.log('hola')}
 
 function DecimalABinario(num) {
 // primera opción con método://
