@@ -53,7 +53,7 @@ function Queue() {
   this.array = [];
 }
 
-let q1 = new Queue()
+
 Queue.prototype.size = function() {
   return this.array.length
 }

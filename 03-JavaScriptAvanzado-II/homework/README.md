@@ -15,6 +15,17 @@ Para ejecutar los test, anda a esta carpeta y ejecutá:
 
 Crear un método `repeatify` que este disponible para _todos_ los objetos `Strings`. Esta función debe aceptar un `entero` que indica cuantas veces el string tiene que repetirse. La función retorna el string repetido el número de veces que indicamos. Controlar que el número no sea menor que cero, y si es cero que devuelva `''` (String vacío).
 
+String.prototype.repeatify = function (entero) {
+    if (entero < 0) {return `Error al recibir ${entero}, pues es menor a 0`};
+    if (entero === 0) {return "''"}
+        else return this.repeat(entero)}
+
+
+
+console.log('hola'.repeatify(3));
+console.log('hola'.repeatify(-1));
+console.log('hola'.repeatify(0));
+
 ```javascript
 console.log('hola'.repeatify(3));   //holaholahola
 ```

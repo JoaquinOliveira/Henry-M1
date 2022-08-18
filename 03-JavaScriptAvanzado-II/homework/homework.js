@@ -32,7 +32,7 @@ function cacheFunction(cb) {
   var cache = {}
   return function(arg) {
    if (cache.hasOwnProperty(arg)){
-     return cache[arg]}
+    return cache[arg]}
     else {
     cache[arg] = cb(arg)
     return cache[arg]
@@ -90,9 +90,8 @@ function getNombre() {
 
 
 let getNombreInstructor = getNombre.bind(instructor);
-getNombreInstructor()
 let getNombreAlumno = getNombre.bind(alumno);
-getNombreAlumno()
+
 
 /*
   Ejercicio 4
@@ -106,11 +105,9 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
 }
 
 let textoAsteriscos = crearCadena.bind(this, '*', '*');
-textoAsteriscos()
 let textoGuiones = crearCadena.bind(this, '-', '-');
-textoGuiones()
 let textoUnderscore = crearCadena.bind(this, '_', '_');
-textoUnderscore()
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
