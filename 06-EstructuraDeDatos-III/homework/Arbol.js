@@ -29,29 +29,28 @@ BinarySearchTree.prototype.insert = function (value) {
 };
 
 BinarySearchTree.prototype.size = function () {
-    //count += (this.left ? this.left.size() : 0) + (this.right ? this.right.size() : 0)
-    let count = 1
-    if (this.left) {count += this.left.size()}
-    else count += 0
-    if (this.right) {count += this.right.size()}
-    else count += 0
-    return count
-    }
+//count += (this.left ? this.left.size() : 0) + (this.right ? this.right.size() : 0)
+let count = 1
+if (this.left) {count += this.left.size()}
+else count += 0
+if (this.right) {count += this.right.size()}
+else count += 0
+return count
+}
 
 
 BinarySearchTree.prototype.contains = function (value) {
-      if(this.value === value){
-      return true;
-    }
-    if(value < this.value && this.left !== null){
-      return this.left.contains(value);
-    }else if(value > this.value && this.right !== null){
-      return this.right.contains(value)
-    }else{
-      return false;
-    }
-  }
-
+    if(this.value === value){
+		return true; //si el valor del nodo, es el valor dado por parametro, devuelve true, pues existe en el árbol.
+	}
+	if(value < this.value && this.left !== null){ //si el valor dado es menor al del nodo,
+		return this.left.contains(value); // y a la izquierda existe un nodo, volvemos arrancar (recursividad)
+	}else if(value > this.value && this.right !== null){ //idem arriba, pero con el valor de parametro, siendo mayor al del nodo de referencia.
+		return this.right.contains(value) //recursividad
+	}else{
+		return false; //si recorrida el arbol y nos encontramos, tanto por izq o derecha, con un nodo inexistente (null), arroja false, pues no se encontró lo buscado.
+	}
+}
 BinarySearchTree.prototype.depthFirstForEach = function (cb, type) {
   if (!type || type === 'in-order') {
     if (this.left) this.left.depthFirstForEach(cb, type) //this.left && this.left.depthFirstForeach(cb) es igual, pues si el this left es falso no se ejecuta el segundo.
@@ -65,19 +64,29 @@ BinarySearchTree.prototype.depthFirstForEach = function (cb, type) {
     if (this.left) this.left.depthFirstForEach(cb, type);
     if (this.right) this.right.depthFirstForEach(cb, type);
     cb(this.value)}
-} 
+  }
+BinarySearchTree.prototype.breadthFirstForEach = function () {BinarySearchTree.prototype.breadthFirstForEach = function (cb, array = []) {
+  cb(this.value)
+  if (this.left) array.push(this.left) 
+  if (this.right) array.push(this.right)
+  array.length && array.shift().breadthFirstForEach(cb, array)}}
 
-BinarySearchTree.prototype.breadthFirstForEach = function (cb, array = []) {
-    cb(this.value)
-    if (this.left) array.push(this.left) 
-    if (this.right) array.push(this.right)
-    array.length && array.shift().breadthFirstForEach(cb, array)}
-    
-    /*let nextNode = array.shift()
-    if (nextNode) nextNode.breathFirstForeach(cb,array)*/
-  
-
-
+let tree = new BinarySearchTree(20);
+//let testArr = []
+tree.insert(12)
+tree.insert(40)
+tree.insert(70)
+tree.size();
+console.log(tree.size())
+console.log(tree.contains(20))
+tree.insert(90)
+console.log(tree.contains(120))
+console.log(tree.contains(90))
+console.log(tree.contains(15))
+console.log(tree.contains(40))
+console.log(tree.contains(12))
+console.log(tree.contains(1000))
+console.log(tree.contains(70))
 // No modifiquen nada debajo de esta linea
 // --------------------------------
 
