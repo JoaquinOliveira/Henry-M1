@@ -37,7 +37,13 @@ BinarySearchTree.prototype.size = function () {
     else count += 0
     return count
     }
+/* PROFESOR LO RESOLVIO ASI: 
 
+if (this.value === null) return 0;
+if (this.left === null & this.right === null) return 1;
+if (this left === null & this.right !== null) return 1 + this.right.size();
+if (this.right === null & this.left !== null) return 1 + this.left.size();
+return 1 + this.right.size() + this.left.size() */
 
 BinarySearchTree.prototype.contains = function (value) {
       if(this.value === value){
@@ -50,7 +56,17 @@ BinarySearchTree.prototype.contains = function (value) {
     }else{
       return false;
     }
+  
   }
+  /*el profe lo resolvió así:
+  if (value > this value){
+  if (this.left === null) return false
+  else return this.left.contains(value)
+
+  if (this.right === null) return false
+  else return this.left.contains(value)}
+  */
+
 
 BinarySearchTree.prototype.depthFirstForEach = function (cb, type) {
   if (!type || type === 'in-order') {
