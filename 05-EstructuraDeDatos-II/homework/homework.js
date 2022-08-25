@@ -108,7 +108,7 @@ this.numBuckets = 35;
 this.array = [];
 }
 
-HashTable.prototype.hash  = function (key, value) { 
+HashTable.prototype.hash = function (key, value) { 
 let sum = 0;
 for (let i = 0; i < key.length; i++){
   sum+= key.charCodeAt(i)
